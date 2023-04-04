@@ -143,6 +143,13 @@ function colidiu(passaro, barreiras) {
     return colidiu
 }
 
+function resetGame(areaDoJogo, temporizador) {
+    alert('Você perdeu')
+    areaDoJogo.innerHTML = ''
+    clearInterval(temporizador)
+    new FlappyBird().start()
+}
+
 function FlappyBird() {
     let ponto = 0
 
@@ -165,7 +172,7 @@ function FlappyBird() {
             passaro.animar()
 
             if(colidiu(passaro, barreiras)) {
-                clearInterval(temporizador) 
+                resetGame(areaDoJogo, temporizador)
             }
         }, 20)
     }
